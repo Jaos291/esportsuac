@@ -6,29 +6,29 @@
           <h2 class="title-sign">Registrarse</h2>
           <form action="/action_page.php">
             <div class="form-group">
-              <input type="name" class="form-control" id="name" placeholder="Nombres" name="name">
+              <input type="text" class="form-control" id="name" placeholder="Nombres" name="name" maxlength="50" required >
             </div>
             <div class="form-group">
-              <input type="name" class="form-control" id="lastname" placeholder="Apellidos" name="lastname">
+              <input type="text" class="form-control" id="lastname" placeholder="Apellidos" name="lastname" maxlength="50" required>
             </div>
             <div class="form-group">
               <select class="form-control" id="id-type">
-                <option value="cedula">Cédula</option>
+                <option value="cédula">Cédula</option>
                 <option value="ti">Tajeta de identidad</option>
                 <option value="ce">Código estudiantil</option>
               </select>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" id="id-number" placeholder="Número de identificación" name="id-number">
+            <div class="form-group input-id-number">
+              <input type="text" class="form-control" id="id-number" placeholder="Número de identificación" name="id-number" required>
             </div>
             <div class="form-group input-email">
-              <input type="email" class="form-control" id="email" placeholder="Correo electronico" name="email">
+              <input type="email" class="form-control" id="email" placeholder="Correo electronico" name="email" maxlength="50" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pwd">
+              <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pwd" maxlength="20" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="pwd-confirm" placeholder="Confirmar contraseña" name="pwd-confirm">
+              <input type="password" class="form-control" id="pwd-confirm" placeholder="Confirmar contraseña" name="pwd-confirm" maxlength="20" required>
             </div>
             <div class="content-btn-form-sign">
               <button type="submit" class="btn btn-default btn-form-sign">Registrar</button>

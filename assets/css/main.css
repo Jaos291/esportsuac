@@ -118,10 +118,12 @@
   box-shadow: none;
   border-color: #c7363b;
 }
-.input-email{
+.input-email,
+.input-id-number{
   position: relative;
 }
-.input-email.icon-valid::before{
+.input-email.icon-valid::before,
+.input-id-number.icon-valid::before{
   content: "";
   display: block;
   background-image: url("../img/icons/valid-icon.svg");
@@ -129,7 +131,7 @@
   height: 15px;
   position: absolute;
   top: 17px;
-  right: 20px;  
+  right: 20px;
 }
 /*
 cambiar place holder
