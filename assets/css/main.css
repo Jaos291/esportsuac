@@ -1,0 +1,170 @@
+/* home */
+.masthead .btn-us{
+  background-color: #c7363b;
+}
+.masthead .btn-us:hover{
+  background-color: #c1131e;
+}
+.masthead .divider-red,
+#services .divider-red,
+#contact .divider-red{
+  border-color: #c7363b;
+}
+.icon-fightings{
+  background-image: url("../img/icons/icon-figthing.png");
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 1.5rem;
+}
+.icon-shooters{
+  background-image: url("../img/icons/icon-shooter.png");
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 1.5rem;
+}
+.icon-mobas{
+  background-image: url("../img/icons/icon-moba.png");
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 1.5rem;
+}
+.row{
+  justify-content: center;
+}
+.bg-welcome{
+  background-color: #c7363b !important;
+}
+.row .contact-info > a{
+  color: #c7363b;
+}
+
+/* login y signin*/
+
+.form-login .content-btn-form-login,
+.form-signin .content-btn-form-sign{
+  border-radius: 8px;
+  background: #c7363b;
+  padding: 5px;
+}
+.form-login .content-btn-form-login:hover,
+.form-signin .content-btn-form-sign:hover{
+  background: #c1131e;
+
+}
+.form-login .content-btn-form-login .btn-form-login,
+.form-signin .content-btn-form-sign .btn-form-sign{
+  width: 100%;
+  color: #ffffff;
+  font-weight: 700;
+}
+.form-login .forgot-password{
+  text-align: center;
+  margin: 20px 0px;
+}
+.form-login .forgot-password a{
+  color: #999999;
+  text-decoration: none;
+}
+.form-login-sign-in,
+.form-sign-login-in{
+  color: #999999;
+  text-align: center;
+  margin: 20px 0px 0px;
+}
+.form-login-sign-in a,
+.form-sign-login-in a{
+  color: #c7363b;
+  font-weight: 700;
+}
+.form-login-sign-in a:hover,
+.form-sign-login-in a:hover{
+  color: #c1131e;
+  font-weight: 700;
+}
+.form-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #ebebeb;
+}
+.form-content #login-content,
+.form-content #signin-content{
+  width: 100%;
+}
+#login-content .form-login,
+#signin-content .form-signin{
+  background: #ffffff;
+  padding: 30px 0px;
+  border-radius: 8px;
+}
+.form-login .title-login,
+.form-signin .title-sign{
+  margin: 20px 0px;
+}
+.form-group{
+  margin: 25px 0px;
+}
+.form-group input,
+.form-group select{
+  min-height: 50px;
+  color: #6b7685;
+}
+.form-control:focus{
+  box-shadow: none;
+  border-color: #c7363b;
+}
+.input-email{
+  position: relative;
+}
+.input-email.icon-valid::before{
+  content: "";
+  display: block;
+  background-image: url("../img/icons/valid-icon.svg");
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  top: 17px;
+  right: 20px;  
+}
+/*
+cambiar place holder
+input[type="email"]::placeholder {
+    color: blue;
+}
+*/
+
+
+
+
+
+
+/* Medias Query */
+@media (min-width: 768px){
+  #login-content .form-login{
+    max-width: 600px;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+  #signin-content .form-signin{
+    max-width: 700px;
+    padding-left: 85px;
+    padding-right: 85px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width:767px){
+  #login-content .form-login{
+    max-width: none;
+    padding:  20px;
+  }
+  #signin-content .form-signin{
+    max-width: none;
+    padding:  20px;
+  }
+}
