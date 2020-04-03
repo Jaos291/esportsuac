@@ -119,11 +119,13 @@
   border-color: #c7363b;
 }
 .input-email,
-.input-id-number{
+.input-id-number,
+.input-pwd-confirm{
   position: relative;
 }
 .input-email.icon-valid::before,
-.input-id-number.icon-valid::before{
+.input-id-number.icon-valid::before,
+.input-pwd-confirm.icon-valid::before{
   content: "";
   display: block;
   background-image: url("../img/icons/valid-icon.svg");

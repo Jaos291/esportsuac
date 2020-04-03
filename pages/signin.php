@@ -27,7 +27,7 @@
             <div class="form-group">
               <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pwd" maxlength="20" required>
             </div>
-            <div class="form-group">
+            <div class="form-group input-pwd-confirm">
               <input type="password" class="form-control" id="pwd-confirm" placeholder="Confirmar contraseña" name="pwd-confirm" maxlength="20" required>
             </div>
             <div class="content-btn-form-sign">

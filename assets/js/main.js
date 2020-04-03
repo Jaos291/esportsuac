@@ -50,6 +50,25 @@ function validateIdentification(){
       }
 }validateIdentification();
 
+function validPass(){
+    if(document.querySelector('#pwd-confirm') != null){
+        var numInput = document.querySelector('#pwd-confirm');
+        var pwd = document.querySelector('#pwd');
+        numInput.value == pwd.value
+          ? (numInput.parentElement.classList.add('icon-valid'))
+          : (numInput.parentElement.classList.remove('icon-valid'));
+    }
+}
+function validatePass(){
+    if(document.querySelector('#pwd-confirm') != null){
+        const numInput = document.querySelector('#pwd-confirm');
+        numInput.addEventListener('click',function(){
+            validPass();
+        })
+        numInput.addEventListener('input', validPass, false);
+      }
+}validatePass();
+
 // Solo letras
 $('#name, #lastname').bind('keypress', function(event) {
   var regex = new RegExp("^[a-zA-Z ]+$");
@@ -74,4 +93,10 @@ $('#id-number').bind('keypress', function(event) {
 $('#id-type').click(function() {
     $('#id-number').val('');
     $('.input-id-number').removeClass('icon-valid');
-  });
+});
+
+// limpiar input password confirm
+
+$('#pwd').click(function() {
+    $('.input-pwd-confirm').removeClass('icon-valid');
+});
