@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger nav-red" href="pages/login.php">Iniciar Sesión</a>
+            <a class="nav-link js-scroll-trigger nav-red" href="pages/login.php">Iniciar sesión</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="pages/signin.php">Registrate</a>

@@ -142,9 +142,12 @@ input[type="email"]::placeholder {
 }
 */
 .msg-error{
-  color: #e81123;
+  color: #c7363b;
   font-size: 13px;
   margin: 10px 0px;
+  background: #ffdce0;
+  border-radius: 5px;
+  text-align: center;
 }
 
 
