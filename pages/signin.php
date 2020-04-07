@@ -9,7 +9,7 @@ $nombre = "";
 $apellido = "";
 $celular = "";
 $identificacion = "";
-/*if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['id-numer'])) {*/
+if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['id-number']))   {
   if ($_POST['email'] == "") {
     $msg.="Debe ingresar un correo <br>";
   }
@@ -61,7 +61,7 @@ $identificacion = "";
       $msg.="Usuario ya existe";
     }
   }
-/*}else {
+}/*else {
   $var_text ="NO ENTRÓ MK";
 }*/
  ?>
