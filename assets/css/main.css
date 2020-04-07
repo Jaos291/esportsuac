@@ -107,7 +107,7 @@
   margin: 20px 0px;
 }
 .form-group{
-  margin: 25px 0px;
+  margin: 20px 0px;
 }
 .form-group input,
 .form-group select{
@@ -141,10 +141,11 @@ input[type="email"]::placeholder {
     color: blue;
 }
 */
-
-
-
-
+.msg-error{
+  color: #e81123;
+  font-size: 13px;
+  margin: 10px 0px;
+}
 
 
 /* Medias Query */

@@ -10,9 +10,9 @@ $password="";
 $msg="";
 if (isset($_POST['email']) && isset($_POST['pwd'])) {
   if ($_POST['email'] =="") {
-    $msg.="Ingrese un correo <br>";
+    $msg.="Nombre de usuario o contraseña incorrecta";
   } else if ($_POST['pwd'] == ""){
-      $msg.="Ingrese su contraseña <br>";
+    $msg.="Nombre de usuario o contraseña incorrecta";
   }else{
     $email = strip_tags($_POST['email']);
     $password = strip_tags($_POST['pwd']);
@@ -33,8 +33,8 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
       $_SESSION['autorizado'] = true;
       echo '<meta http-equiv="refresh" content="1; url=../index.php">';
         }else{
-      $msg.="Usuario inválido o contraseña inválido <br>";
-      $_SESSION['autorizado'] = false;
+        $msg.="Nombre de usuario o contraseña incorrecta";
+        $_SESSION['autorizado'] = false;
     }
   }
 }
@@ -47,6 +47,7 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
           <h2 class="title-login">Iniciar sesión</h2>
           <form action="login.php" method="post">
             <div class="form-group">
+              <div class = "msg-error"><?php echo $msg; ?></div>
               <input type="email" class="form-control" id="email" placeholder="Correo electronico" name="email">
             </div>
             <div class="form-group">
@@ -61,10 +62,7 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
             <div class="form-login-sign-in">
               <label>¿No tienes cuenta?</label>
               <a href="signin.php">Registraste ahora</a>
-            </div>
-            <div class = "mensaje_login" style="color:red">
-                <?php echo $msg; ?>
-            </div>
+            </div>            
           </form>
         </div>
       </div>
