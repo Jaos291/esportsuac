@@ -11,22 +11,22 @@ $celular = "";
 $identificacion = "";
 if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm']) && isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['id-number']))   {
   if ($_POST['email'] == "") {
-    $msg.="Debe ingresar un correo <br>";
+    $msgEmail.="La dirección de correo electrónico es obligatoria <br>";
   }
   if ($_POST['pwd'] == "") {
-    $msg.= "Debe ingresar una contraseña <br>";
+    $msgPWD.= "Se necesita una contraseña";
   }
   if ($_POST['pwd-confirm'] == "") {
-    $msg.= "Debe repetir la clave <br>";
+    $msgRPWD.= "Debe repetir la contraseña";
   }
   if ($_POST['name'] == "") {
-    $msg.= "Debe ingresar nombre <br>";
+    $msgNombre.= "Debe ingresar su nombre";
   }
   if ($_POST['lastname'] == "") {
-    $msg.= "Debe ingresar apellido <br>";
+    $msgApellidos.= "Debe ingresar sus apellidos";
   }
   if ($_POST['id-number'] == "") {
-    $msg.= "Debe ingresar número de identifiación <br>";
+    $msgID.= "Debe ingresar número de identifiación";
   }
   $nombre = strip_tags($_POST['name']);
   $apellido = strip_tags($_POST['lastname']);
@@ -72,9 +72,11 @@ if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm'
           <h2 class="title-sign">Registrarse</h2>
           <form action="signin.php" method="post">
             <div class="form-group">
+              <div class="msg-error"><?php echo $msgNombre; ?></div>
               <input type="text" class="form-control" id="name" placeholder="Nombres" name="name" maxlength="50" required >
             </div>
             <div class="form-group">
+              <div class="msg-error"><?php echo $msgApellidos; ?></div>
               <input type="text" class="form-control" id="lastname" placeholder="Apellidos" name="lastname" maxlength="50" required>
             </div>
             <div class="form-group">
@@ -85,15 +87,19 @@ if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm'
               </select>
             </div>
             <div class="form-group input-id-number">
+              <div class="msg-error"><?php echo $msgNombre; ?></div>
               <input type="text" class="form-control" id="id-number" placeholder="Número de identificación" name="id-number" required>
             </div>
             <div class="form-group input-email">
+              <div class="msg-error"><?php echo $msgEmail; ?></div>
               <input type="email" class="form-control" id="email" placeholder="Correo electronico" name="email" maxlength="50" required>
             </div>
             <div class="form-group">
+              <div class="msg-error"><?php echo $msgPWD; ?></div>
               <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pwd" maxlength="20" required>
             </div>
             <div class="form-group input-pwd-confirm">
+              <div class="msg-error"><?php echo $msgRPWD; ?></div>
               <input type="password" class="form-control" id="pwd-confirm" placeholder="Confirmar contraseña" name="pwd-confirm" maxlength="20" required>
             </div>
             <div class="content-btn-form-sign">
