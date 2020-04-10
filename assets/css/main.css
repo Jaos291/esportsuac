@@ -44,21 +44,28 @@
 /* login y signin*/
 
 .form-login .content-btn-form-login,
-.form-signin .content-btn-form-sign{
+.form-signin .content-btn-form-sign,
+.ranking-search .content-btn-ranking-search{
   border-radius: 8px;
   background: #c7363b;
   padding: 5px;
 }
 .form-login .content-btn-form-login:hover,
-.form-signin .content-btn-form-sign:hover{
+.form-signin .content-btn-form-sign:hover
+.ranking-search .content-btn-ranking-search:hover{
   background: #c1131e;
-
 }
 .form-login .content-btn-form-login .btn-form-login,
-.form-signin .content-btn-form-sign .btn-form-sign{
+.form-signin .content-btn-form-sign .btn-form-sign,
+.ranking-search .content-btn-ranking-search .btn-ranking-search{
   width: 100%;
   color: #ffffff;
   font-weight: 700;
+}
+.form-login .content-btn-form-login .btn-form-login:focus,
+.form-signin .content-btn-form-sign .btn-form-sign:focus,
+.ranking-search .content-btn-ranking-search .btn-ranking-search:focus{
+  box-shadow: none;
 }
 .form-login .forgot-password{
   text-align: center;
@@ -84,7 +91,7 @@
   color: #c1131e;
   font-weight: 700;
 }
-.form-content{
+.form-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,8 +99,9 @@
   min-height: 100vh;
   background: #ebebeb;
 }
-.form-content #login-content,
-.form-content #signin-content{
+.form-container #login-content,
+.form-container #signin-content,
+.ranking-container .ranking-content{
   width: 100%;
 }
 #login-content .form-login,
@@ -149,7 +157,33 @@ input[type="email"]::placeholder {
   border-radius: 5px;
   text-align: center;
 }
-
+.ranking-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to bottom,rgba(92,77,66,.8) 0,rgba(92,77,66,.8) 100%),url(../img/background-republic.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.ranking-container .ranking-search{
+  margin: 0 auto;
+}
+.ranking-content .search{
+  display: flex;
+}
+.ranking-content .search .search-select{
+  margin: 0 5px;
+}
+.ranking-search .content-btn-ranking-search{
+  max-width: 300px;
+  margin: 20px auto;
+}
+.content-ranking-table .ranking-table{
+  color: #ffffff;  
+}
 
 /* Medias Query */
 @media (min-width: 768px){
@@ -165,13 +199,14 @@ input[type="email"]::placeholder {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .ranking-container .ranking-search{
+    max-width: 700px;
+  }
 }
 @media (max-width:767px){
-  #login-content .form-login{
-    max-width: none;
-    padding:  20px;
-  }
-  #signin-content .form-signin{
+  #login-content .form-login,
+  #signin-content .form-signin,
+  .ranking-container .ranking-search{
     max-width: none;
     padding:  20px;
   }

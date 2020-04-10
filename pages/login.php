@@ -41,7 +41,7 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
 
  ?>
   <body>
-    <div class="form-content">
+    <div class="form-container">
       <div id="login-content">
         <div class="container form-login">
           <h2 class="title-login">Iniciar sesión</h2>
