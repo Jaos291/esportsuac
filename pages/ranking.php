@@ -1,8 +1,19 @@
 <?php include '../includes/head.php';?>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">E-Sports UAC</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
   <div class="ranking-container">
     <div class="ranking-content">
       <div class="ranking-search">
+        <div class="ranking-title">
+          <h2>Tabla de clasificación</h2>
+        </div>
         <div class="form-group search">
           <select class="form-control search-select" name="ranking-select">
             <option hidden selected>Seleccione una liga</option>
@@ -12,21 +23,12 @@
           </select>
           <select class="form-control search-select" name="program-select">
             <option hidden selected>Seleccione un programa</option>
-            <option value="arquitectura">Arquitectura</option>
-            <option value="diseño grafico">Diseño Gráfico</option>
-            <option value="diseño de espacios">Diseño de Espacios</option>
-            <option value="diseño de modas">Diseño de Modas</option>
-            <option value="ingenieria de sistemas">Ingeniería de Sistemas</option>
-            <option value="ingenieria electronica y telecomunicacione">Ingeniería Electrónica y Telecomunicaciones</option>
-            <option value="ingenieria industrial">Ingeniería Industrial</option>
-            <option value="ingenieria mecanica">Ingeniería Mecánica</option>
-            <option value="ingenieria mecatronica">Ingeniería Mecatrónica</option>
           </select>
         </div>
         <div class="content-btn-ranking-search">
           <button type="submit" class="btn btn-default btn-ranking-search">Buscar</button>
         </div>
-        <div class="content-ranking-table">
+        <div class="table-responsive content-ranking-table">
           <table class="table ranking-table">
             <thead>
               <tr>

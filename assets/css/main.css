@@ -167,6 +167,7 @@ input[type="email"]::placeholder {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  padding-top: 72px;
 }
 .ranking-container .ranking-search{
   margin: 0 auto;
@@ -182,7 +183,11 @@ input[type="email"]::placeholder {
   margin: 20px auto;
 }
 .content-ranking-table .ranking-table{
-  color: #ffffff;  
+  color: #ffffff;
+}
+.ranking-container .ranking-title{
+  color: #ffffff;
+  text-align: center;
 }
 
 /* Medias Query */
