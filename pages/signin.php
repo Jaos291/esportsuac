@@ -1,6 +1,8 @@
 <?php
 include '../includes/head.php';
 include 'config.php';
+include ('functions.php');
+$userClass = new userClass();
 $msg ="";
 $email = "";
 $password ="";
@@ -41,29 +43,14 @@ if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm'
   }elseif (strlen($password) < 8) {
     $msg.="La contraseña debe ser mayor a 8 carácteres <br>";
   }else{
-    if (!$mysqli) {
-      echo "Error en la conexión";
-      die();
-    }
-    //Hasta acá todo va bien
-    //$ip = $_SERVER['REMOTE_ADDR'];
-    $resultado = $mysqli->query("SELECT * FROM `esportsuac_usuarios`  WHERE `usuarios_email` = '".$email."'");
-    $usuarios = $resultado->fetch_all(MYSQLI_ASSOC);
-
-    $cantidad = count($usuarios);
-
-    if ($cantidad == 0) {
-      //$password = sha1($password);
-      $mysqli->query("INSERT INTO `esportsuac_usuarios` (`usuarios_nombre`,`usuarios_apellidos`,`usuarios_tipo_id`,`usuarios_identificacion`,`usuarios_email`,`usuarios_password`)
-                      VALUES ('".$nombre."','".$apellido."','".$tipo_id."','".$identificacion."','".$email."','".$password."');");
-      $msg.="<a href='login.php'>Usuario creado correctamente, <br> ingrese haciendo click aquí</a>";
-    }else {
+      $uid=$userClass->userRegistration($nombre, $apellido,$tipo_id,$identificacion,$email,$password);
+      if ($uid) {
+        $msg.="<a href='login.php'>Usuario creado correctamente, <br> ingrese haciendo click aquí</a>";
+      } else {
       $msg.="Usuario ya existe";
     }
   }
-}/*else {
-  $var_text ="NO ENTRÓ MK";
-}*/
+}
  ?>
   <body>
     <div class="form-container">
@@ -72,34 +59,34 @@ if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm'
           <h2 class="title-sign">Registrarse</h2>
           <form action="signin.php" method="post">
             <div class="form-group">
-              <div class="msg-error"><?php echo $msgNombre; ?></div>
+              <div class="msg-error"><?php //echo $msgNombre; ?></div>
               <input type="text" class="form-control" id="name" placeholder="Nombres" name="name" maxlength="50" required >
             </div>
             <div class="form-group">
-              <div class="msg-error"><?php echo $msgApellidos; ?></div>
+              <div class="msg-error"><?php //echo $msgApellidos; ?></div>
               <input type="text" class="form-control" id="lastname" placeholder="Apellidos" name="lastname" maxlength="50" required>
             </div>
             <div class="form-group">
-              <select class="form-control" id="id-type" name="id-type">                
+              <select class="form-control" id="id-type" name="id-type">
                 <option value="cedula">Cédula</option>
                 <option value="ti">Tajeta de identidad</option>
                 <option value="ce">Código estudiantil</option>
               </select>
             </div>
             <div class="form-group input-id-number">
-              <div class="msg-error"><?php echo $msgNombre; ?></div>
+              <div class="msg-error"><?php //echo $msgNombre; ?></div>
               <input type="text" class="form-control" id="id-number" placeholder="Número de identificación" name="id-number" required>
             </div>
             <div class="form-group input-email">
-              <div class="msg-error"><?php echo $msgEmail; ?></div>
+              <div class="msg-error"><?php //echo $msgEmail; ?></div>
               <input type="email" class="form-control" id="email" placeholder="Correo electronico" name="email" maxlength="50" required>
             </div>
             <div class="form-group">
-              <div class="msg-error"><?php echo $msgPWD; ?></div>
+              <div class="msg-error"><?php //echo $msgPWD; ?></div>
               <input type="password" class="form-control" id="pwd" placeholder="Contraseña" name="pwd" maxlength="20" required>
             </div>
             <div class="form-group input-pwd-confirm">
-              <div class="msg-error"><?php echo $msgRPWD; ?></div>
+              <div class="msg-error"><?php //echo $msgRPWD; ?></div>
               <input type="password" class="form-control" id="pwd-confirm" placeholder="Confirmar contraseña" name="pwd-confirm" maxlength="20" required>
             </div>
             <div class="content-btn-form-sign">

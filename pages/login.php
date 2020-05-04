@@ -1,8 +1,8 @@
 <?php
-session_start();
 include '../includes/head.php';
 include 'config.php';
-include 'functions.php';
+include ('functions.php');
+$userClass = new userClass();
 $_SESSION['autorizado']=false;
 $autorizado = false;
 $email="";
@@ -10,22 +10,14 @@ $password="";
 $msg="";
 if (isset($_POST['email']) && isset($_POST['pwd'])) {
   if ($_POST['email'] =="") {
-    $msg.="Nombre de usuario o contraseña incorrecta";
+    $msg.="Ingrese correo <br>";
   } else if ($_POST['pwd'] == ""){
-    $msg.="Nombre de usuario o contraseña incorrecta";
+    $msg.="Ingrese contraseña <br>";
   }else{
     $email = strip_tags($_POST['email']);
     $password = strip_tags($_POST['pwd']);
-    if (!$mysqli) {
-      echo"Error en la conexión";
-      die();
-    }
-    $resultado = $mysqli->query("SELECT * FROM `esportsuac_usuarios`  WHERE `usuarios_email` = '".$email."' AND `usuarios_password` = '".$password."' ");
-    $usuarios = $resultado->fetch_all(MYSQLI_ASSOC);
-    $cantidad = count($usuarios);
-  /*  $_SESSION['usuarios_id'] = $usuarios[0]['usuarios_id'];
-    $_SESSION['usuarios_email'] = $usuarios[0]['usuarios_email'];*/
-    if ($cantidad == 1) {
+    $uid=$userClass->userLogin($email, $password);
+    if ($uid) {
       $hoy = date("Y-m-d H:i:s");
       //$mysqli->query("UPDATE `usuarios` SET `usuarios_ultimo_login`= '".$hoy."' WHERE `usuarios_email` = '".$email."'");
       $msg ="Bienvenido";
@@ -38,6 +30,7 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
     }
   }
 }
+
 
  ?>
   <body>
