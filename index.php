@@ -23,25 +23,34 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger nav-red" href="pages/login.php">Iniciar sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger nav-red" href="pages/signin.php">Registrate</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="#about">Sobre nosotros</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="#services">Ligas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger nav-red" href="pages/ranking.php">Ranking</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="#contact">Contacto</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger nav-red" href="pages/ranking.php">Ranking</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="pages/faq.php">FAQ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link js-scroll-trigger nav-red dropdown-toggle dropdown-profile" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Perfil
+            </a>
+            <div class="dropdown-menu dropdown-item-profile" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="pages/admin/index.php">Configuración</a>
+              <a class="dropdown-item" href="#">Cerrar sesión</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger nav-red" href="pages/login.php">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger nav-red" href="pages/signin.php">Registrate</a>
           </li>
         </ul>
       </div>

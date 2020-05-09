@@ -1,7 +1,7 @@
 <?php
 include '../includes/head.php';
 include 'config.php';
-include ('functions.php');
+include 'functions.php';
 $userClass = new userClass();
 $_SESSION['autorizado']=false;
 $autorizado = false;
@@ -9,28 +9,27 @@ $email="";
 $password="";
 $msg="";
 if (isset($_POST['email']) && isset($_POST['pwd'])) {
-  if ($_POST['email'] =="") {
-    $msg.="Ingrese correo <br>";
-  } else if ($_POST['pwd'] == ""){
-    $msg.="Ingrese contraseña <br>";
-  }else{
-    $email = strip_tags($_POST['email']);
-    $password = strip_tags($_POST['pwd']);
-    $uid=$userClass->userLogin($email, $password);
-    if ($uid) {
-      $hoy = date("Y-m-d H:i:s");
-      //$mysqli->query("UPDATE `usuarios` SET `usuarios_ultimo_login`= '".$hoy."' WHERE `usuarios_email` = '".$email."'");
-      $msg ="Bienvenido";
-      //Hasta este punto el usuario ha podido ingresar, entonces está autorizado
-      $_SESSION['autorizado'] = true;
-      echo '<meta http-equiv="refresh" content="1; url=../index.php">';
-        }else{
-        $msg.="Nombre de usuario o contraseña incorrecta";
-        $_SESSION['autorizado'] = false;
+    if ($_POST['email'] =="") {
+        $msg.="Ingrese correo <br>";
+    } elseif ($_POST['pwd'] == "") {
+        $msg.="Ingrese contraseña <br>";
+    } else {
+        $email = strip_tags($_POST['email']);
+        $password = strip_tags($_POST['pwd']);
+        $uid=$userClass->userLogin($email, $password);
+        if ($uid) {
+            $hoy = date("Y-m-d H:i:s");
+            //$mysqli->query("UPDATE `usuarios` SET `usuarios_ultimo_login`= '".$hoy."' WHERE `usuarios_email` = '".$email."'");
+            $msg ="Bienvenido";
+            //Hasta este punto el usuario ha podido ingresar, entonces está autorizado
+            $_SESSION['autorizado'] = true;
+            echo '<meta http-equiv="refresh" content="1; url=../index.php">';
+        } else {
+            $msg.="Nombre de usuario o contraseña incorrecta";
+            $_SESSION['autorizado'] = false;
+        }
     }
-  }
 }
-
 
  ?>
   <body>

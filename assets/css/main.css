@@ -189,6 +189,14 @@ input[type="email"]::placeholder {
   color: #ffffff;
   text-align: center;
 }
+.dropdown-item-profile{
+  font-size: 14px;
+  font-weight: 700;
+  background: #c7363b;
+}
+.dropdown-item-profile a{
+  color: #ffffff;
+}
 
 /* Medias Query */
 @media (min-width: 768px){

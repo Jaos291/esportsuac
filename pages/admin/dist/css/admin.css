@@ -1,0 +1,24 @@
+.wrapper .content-wrapper{
+  background: #4a3e35;
+}
+.ranking-container .ranking-search{
+  margin: 0 auto;
+}
+.ranking-container .ranking-title{
+  color: #ffffff;
+  text-align: center;
+}
+.main-sidebar{
+  background: #000000;
+}
+.mt-2 .nav-item a{
+  color: #ffffff;
+}
+.mt-2 .nav-item a:hover{
+  color: #ffffff;
+}
+@media (min-width: 768px){
+  .ranking-container .ranking-search{
+    max-width: 700px;
+  }
+}
