@@ -67,7 +67,8 @@ if (isset($_POST['email']) && isset($_POST['pwd']) && isset($_POST['pwd-confirm'
               <input type="text" class="form-control" id="lastname" placeholder="Apellidos" name="lastname" maxlength="50" required>
             </div>
             <div class="form-group">
-              <select class="form-control" id="id-type" name="id-type">
+              <select class="form-control" id="id-type" name="id-type" required>
+                <option hidden selected value="">Seleccione un tipo de indentifiación</option>
                 <option value="cedula">Cédula</option>
                 <option value="ti">Tajeta de identidad</option>
                 <option value="ce">Código estudiantil</option>

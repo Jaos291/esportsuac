@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <div class="login-logo">
-      <img style="width:150px"src="imagenes/unnamed.png" alt="">
+      <img src="imagenes/logo.png" alt="">
     </div>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -68,18 +68,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                <l i class="nav-item">
                  <a href="#" class="header">
                    <p>
-                     Main Navigation
+                     Menú
                    </p>
                  </a>
                </li>
-          <li class="nav-item menu-open">
-            <a href="index.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Descubrir
-              </p>
-            </a>
-          </li>
           <li class="nav-item menu-open">
             <a href="inscription.php" class="nav-link">
               <i class="nav-icon fas fa-binoculars"></i>
@@ -114,24 +106,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
-    <div class="content">
-      <div class="ranking-container">
-        <div class="ranking-content">
-          <div class="ranking-search">
-            <div class="ranking-title">
+      <div class="inscription-container">
+        <div class="inscription-content">
+          <div class="inscription-search">
+            <div class="inscription-title">
               <h2>Inscribete a una liga</h2>
             </div>
-            <div class="form-group search">
-              <select class="form-control search-select" name="ranking-select">
-                <option hidden selected>Seleccione una liga</option>
-                <option value="league of legends">League of Lengends</option>
-                <option value="super smash bros">Super Smash Bros. Ultimate</option>
-              </select>
+            <div class="form-group inscription">
+              <form action="#" method="post">
+                <select class="form-control inscription-select" name="ranking-select" required>
+                  <option hidden selected value="">Seleccione una liga</option>
+                  <option class="lol" value="league of legends">League of Lengends</option>
+                  <option class="smash" value="super smash bros">Super Smash Bros. Ultimate</option>
+                </select>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="user" placeholder="Nombre" name="user" required>
+                </div>
+                <div class="form-check form-group container-terms-and-conditions">
+                  <input class="form-check-input" type="checkbox" class="check-terms-and-conditions" required>
+                  <label class="form-check-label">
+                    Acepto <span class="terms-and-conditions">términos y condiciones </span>
+                  </label>
+              </div>
+                <div class="btn-content-inscription">
+                  <button type="submit" class="btn btn-default btn-inscription">Inscribir</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -146,15 +150,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
   <!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      <b>Version</b> 1.0.0
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy;2019 <a href="https://phptube.com">PHP Tube</a>.</strong> All rights reserved.
-  </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -166,5 +161,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/admin.js"></script>
 </body>
 </html>

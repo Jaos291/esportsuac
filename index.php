@@ -42,7 +42,7 @@
               Perfil
             </a>
             <div class="dropdown-menu dropdown-item-profile" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="pages/admin/index.php">Configuración</a>
+              <a class="dropdown-item" href="pages/admin/inscription.php">Configuración</a>
               <a class="dropdown-item" href="#">Cerrar sesión</a>
             </div>
           </li>

@@ -1,12 +1,35 @@
 .wrapper .content-wrapper{
   background: #4a3e35;
 }
-.ranking-container .ranking-search{
+.inscription-container .inscription-search{
   margin: 0 auto;
 }
-.ranking-container .ranking-title{
+.inscription-container .inscription-title{
   color: #ffffff;
   text-align: center;
+}
+.inscription-container .inscription-select{
+  margin: 1rem 0;
+}
+.inscription-container .btn-content-inscription{
+  max-width: 200px;
+  margin: 0 auto;
+
+  border-radius: 8px;
+}
+.inscription-container .btn-content-inscription .btn-inscription {
+  width: 100%;
+  font-weight: 700;
+  color: #ffffff;
+  background: #c7363b;
+  border-color: #c7363b;
+}
+.container-terms-and-conditions{
+  color: #ffffff;
+  font-weight: 700;
+}
+.container-terms-and-conditions .terms-and-conditions{
+  color: #c7363b;
 }
 .main-sidebar{
   background: #000000;
@@ -14,11 +37,19 @@
 .mt-2 .nav-item a{
   color: #ffffff;
 }
-.mt-2 .nav-item a:hover{
-  color: #ffffff;
+.main-sidebar .nav-pills .nav-link:not(.active):hover {
+  color: #c7363b;
+}
+.login-logo{
+  margin: 1rem 0;
+}
+.fa-sign-in-alt{
+  font-size: 1.2rem;
+  padding-right: 10px;
 }
 @media (min-width: 768px){
-  .ranking-container .ranking-search{
-    max-width: 700px;
+  .inscription-container .inscription-search{
+    max-width: 600px;
+    padding: 20px 80px;
   }
 }
