@@ -1,3 +1,25 @@
+<?php
+session_start();
+if (isset($_SESSION['autorizado'])) {
+  $autorizado = $_SESSION['autorizado'];
+  if ($autorizado == false) {
+    $var_user = "Iniciar sesión";
+    $href = "pages/login.php";
+  }else{
+    $href = "#";
+    $email = $_SESSION['user'];
+    $var_user = $email;
+  }
+}else{
+  $var_user = "Iniciar sesión";
+  $href = "pages/login.php";
+}
+/*if ($autorizado == false) {
+
+}else{
+
+}*/
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +65,11 @@
             </a>
             <div class="dropdown-menu dropdown-item-profile" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="pages/admin/inscription.php">Configuración</a>
-              <a class="dropdown-item" href="#">Cerrar sesión</a>
+              <a class="dropdown-item" href="pages/logout.php">Cerrar sesión</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger nav-red" href="pages/login.php">Iniciar sesión</a>
+            <a class="nav-link js-scroll-trigger nav-red" href=<?php echo $href ?>><?php echo $var_user ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger nav-red" href="pages/signin.php">Registrate</a>
