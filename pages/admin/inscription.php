@@ -1,4 +1,16 @@
-
+<?php
+session_start();
+//validamos si la variable global $_SESSION está en true o false
+$autorizado = $_SESSION['autorizado'];
+//Si está en false no tendrá acceso a la página y será redireccionado a login.php
+if ($autorizado == false) {
+    echo "No tienes autorización";
+    echo '<meta http-equiv="refresh" content="1; url=../login.php">';
+    die();
+} else {
+    $email = $_SESSION['user'];
+}
+ ?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -55,8 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $_SESSION['usuarios_email'] ?></a>
-          <p style="color:white">U.L: <?php echo $_SESSION['usuarios_ultimo_login'] ?></p>
+          <a href="#" class="d-block"><?php echo $email ?></a>
         </div>
       </div>
 
@@ -81,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item menu-open">
-            <a href="configuracion.php" class="nav-link">
+            <a href="configuration.php" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Configuración de cuenta
@@ -89,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item menu-open">
-            <a href="logout.php" class="nav-link">
+            <a href="../logout.php" class="nav-link">
               <i class="fas fa-sign-in-alt"></i>
               <p>
                 Cerrar sesión
@@ -107,7 +118,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <div class="content-wrapper">
     <!-- Main content -->
       <div class="inscription-container">
-        <div class="inscription-content">
           <div class="inscription-search">
             <div class="inscription-title">
               <h2>Inscribete a una liga</h2>
@@ -134,7 +144,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </form>
             </div>
           </div>
-        </div>
       </div>
     <!-- /.content -->
   </div>
