@@ -22,7 +22,7 @@ function validIdentification(){
     if(document.querySelector('#id-number') != null){
         var numInput = document.querySelector('#id-number');
         var valueinput = document.querySelector('#id-type');
-        if (valueinput.value == 'cédula') {
+        if (valueinput.value == 'cedula') {
           $('#id-number').attr('maxlength','10');
           numInput.value.length == 10
           ? (numInput.parentElement.classList.add('icon-valid'))
