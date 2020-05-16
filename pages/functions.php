@@ -30,6 +30,20 @@ class userClass
             echo '{"error":{"text":' . $e->getMessage() . '}}';
         }
     }
+    public function changePassword($email, $password)
+    {
+      try {
+        $db = getDB();
+        $password = sha1($password);
+        $stmt = $db->prepare("UPDATE esportsuac_usuarios SET usuarios_password=:password WHERE usuarios_email=:email");
+        $stmt->bindParam("email", $email, PDO::PARAM_STR);
+        $stmt->bindParam("password", $password, PDO::PARAM_STR);
+        $stmt->execute();
+        return true;
+      } catch (PDOException $e) {
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+      }
+    }
 
     /* User Registration */
     public function userRegistration($name, $apellido, $tipo_id, $id, $email, $password)

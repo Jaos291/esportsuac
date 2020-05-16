@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION))
+    {
+        session_start();
+    } 
 /*$mysqli = mysqli_connect("localhost","root","","esportsuac");
 if (!$mysqli) {
   echo "Error en la conexión";

@@ -19,10 +19,21 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
         $uid=$userClass->userLogin($email, $password);
         if ($uid) {
             $hoy = date("Y-m-d H:i:s");
+          /*  $sql_nombre = "SELECT nombre usuarios_nombre FROM esportsuac_usuarios WHERE usuarios_email = $email";
+            $sql_apellidos = "SELECT nombre usuarios_apellidos FROM esportsuac_usuarios WHERE usuarios_email = $email";
+            $sql_nombre = odbc_exec($sql_nombre);
+            $sql_apellidos = odbc_exec($sql_apellidos);
+            $sql_nombre = odbc_fetch_all($sql_nombre);
+            $sql_apellidos = odbc_fetch_all($sql_apellidos);*/
+            if(!isset($_SESSION))
+              {
+                session_start();
+              }
             //$mysqli->query("UPDATE `usuarios` SET `usuarios_ultimo_login`= '".$hoy."' WHERE `usuarios_email` = '".$email."'");
             $msg ="Bienvenido";
             //Hasta este punto el usuario ha podido ingresar, entonces está autorizado
             $_SESSION['autorizado'] = true;
+            $_SESSION['user'] = $email;
             echo '<meta http-equiv="refresh" content="1; url=../index.php">';
         } else {
             $msg.="Nombre de usuario o contraseña incorrecta";
