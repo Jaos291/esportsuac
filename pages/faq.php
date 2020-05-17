@@ -9,7 +9,7 @@
     </div>
   </nav>
   <div class="faq-container">
-    <div class="ranking-content">
+    <div class="faq-content">
 
     </div>
   </div>

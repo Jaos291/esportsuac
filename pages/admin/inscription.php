@@ -131,14 +131,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <input type="text" class="form-control" id="user" placeholder="Nombre" name="user" required>
                 </div>
                 <div class="form-check form-group container-terms-and-conditions">
-                  <input class="form-check-input" type="checkbox" class="check-terms-and-conditions" required>
-                  <label class="form-check-label">
+                  <input class="form-check-input check-terms-and-conditions" type="checkbox" id="terms-and-conditions" required>
+                  <label class="form-check-label" for="terms-and-conditions">
                     Acepto <span class="terms-and-conditions">términos y condiciones </span>
                   </label>
               </div>
                 <div class="btn-content-inscription">
                   <button type="submit" class="btn btn-default btn-inscription">Inscribir</button>
                 </div>
+                <div id="popup" style="display: none;">
+                    <div class="content-popup">
+                        <div class="close"><a href="#" id="close"><i class="far fa-times-circle"></i></a></div>
+                        <div class="terms-and-conditions-popup">
+                            <h2>Términos y condiciones E-Sports UAC</h2>
+                            <p>Terminos y condiciones Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                        </div>
+                        <div class="options-popup">
+                          <button type="button" class="btn btn-default btn-accept">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-overlay"></div>
               </form>
             </div>
           </div>
