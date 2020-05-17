@@ -29,6 +29,11 @@
   background: #c7363b;
   border-color: #c7363b;
 }
+.inscription-container .btn-content-inscription .btn-inscription:hover,
+.configuration-container .box-footer .btn-change:hover,
+.options-popup .btn-accept:hover {
+  background: #c1131e;
+}
 .container-terms-and-conditions{
   color: #ffffff;
   font-weight: 700;

@@ -50,17 +50,17 @@
   background: #c7363b;
   padding: 5px;
 }
-.form-login .content-btn-form-login:hover,
-.form-signin .content-btn-form-sign:hover
-.ranking-search .content-btn-ranking-search:hover{
-  background: #c1131e;
-}
 .form-login .content-btn-form-login .btn-form-login,
 .form-signin .content-btn-form-sign .btn-form-sign,
 .ranking-search .content-btn-ranking-search .btn-ranking-search{
   width: 100%;
   color: #ffffff;
   font-weight: 700;
+}
+.form-login .content-btn-form-login .btn-form-login:hover,
+.form-signin .content-btn-form-sign .btn-form-sign:hover,
+.ranking-search .content-btn-ranking-search .btn-ranking-search:hover{
+  background: #c1131e;
 }
 .form-login .content-btn-form-login .btn-form-login:focus,
 .form-signin .content-btn-form-sign .btn-form-sign:focus,
