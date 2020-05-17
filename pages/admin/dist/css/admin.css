@@ -1,23 +1,26 @@
 .wrapper .content-wrapper{
   background: #4a3e35;
 }
-.inscription-container .inscription-search{
+.inscription-container .inscription-search,
+.configuration-container .configuration-content{
   margin: 0 auto;
 }
-.inscription-container .inscription-title{
+.inscription-container .inscription-title,
+.configuration-container .configuration-title{
   color: #ffffff;
   text-align: center;
 }
 .inscription-container .inscription-select{
   margin: 1rem 0;
 }
-.inscription-container .btn-content-inscription{
+.inscription-container .btn-content-inscription,
+.configuration-container .box-footer{
   max-width: 200px;
   margin: 0 auto;
-
   border-radius: 8px;
 }
-.inscription-container .btn-content-inscription .btn-inscription {
+.inscription-container .btn-content-inscription .btn-inscription,
+.configuration-container .box-footer .btn-change {
   width: 100%;
   font-weight: 700;
   color: #ffffff;
@@ -43,13 +46,27 @@
 .login-logo{
   margin: 1rem 0;
 }
-.fa-sign-in-alt{
-  font-size: 1.2rem;
-  padding-right: 10px;
+.sidebar .email{
+  color: #ffffff;
 }
-@media (min-width: 768px){
-  .inscription-container .inscription-search{
+.configuration-container .configuration label{
+  color: #ffffff;
+  font-weight: 500;
+}
+.inscription-container .inscription-search,
+.configuration-container .configuration-content{
     max-width: 600px;
     padding: 20px 80px;
+}
+.msg-error{
+  color: #c7363b;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
+}
+@media (max-width: 767px){
+.inscription-container .inscription-search,
+.configuration-container .configuration-content{
+    padding: 20px;
   }
 }

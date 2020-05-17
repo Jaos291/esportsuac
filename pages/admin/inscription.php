@@ -22,7 +22,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>PHP Tube</title>
+  <title>Admin E-Sports UAC</title>
+  <link rel="icon" type="image/png" href="imagenes/logo.png" sizes="32x32">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -63,11 +64,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $email ?></a>
+          <span class="email"><?php echo $email ?></span>
         </div>
       </div>
 
@@ -85,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                </li>
           <li class="nav-item menu-open">
             <a href="inscription.php" class="nav-link">
-              <i class="nav-icon fas fa-binoculars"></i>
+              <i class="nav-icon far fa-edit"></i>
               <p>
                 Inscripción a una liga
               </p>
@@ -101,7 +99,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item menu-open">
             <a href="../logout.php" class="nav-link">
-              <i class="fas fa-sign-in-alt"></i>
+              <i class="nav-icon fas fa-sign-in-alt"></i>
               <p>
                 Cerrar sesión
               </p>

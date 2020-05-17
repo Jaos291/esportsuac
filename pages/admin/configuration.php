@@ -1,40 +1,40 @@
 <?php
-session_start();
+if(!isset($_SESSION))
+    {
+        session_start();
+    }
+include '../config.php';
+include '../functions.php';
+$userClass = new userClass();
 //validamos si la variable global $_SESSION está en true o false
 $autorizado = $_SESSION['autorizado'];
-
+$email = $_SESSION['user'];
 //Si está en false no tendrá acceso a la página y será redireccionado a login.php
 if ($autorizado == false) {
   echo "No tienes autorización";
   echo '<meta http-equiv="refresh" content="0; url=login.php">';
   die();
 }
-
-require_once('funciones.php');
-
-
 $msg = "";
 $msg2 = "";
 
-if ($_FILES) {
-    $archivo = $_FILES;
-    $msg = graba_imagen($archivo);
-}
-
-if (isset($_POST['nueva_password']) && isset($_POST['repite_password'])) {
-  $password = strip_tags($_POST['nueva_password']);
-  $repite_password = strip_tags($_POST['repite_password']);
-
-  if (strcmp($password, $repite_password) !==0) {
+if (isset($_POST['nueva_contraseña']) && isset($_POST['repite_contraseña'])) {
+  $password = strip_tags($_POST['nueva_contraseña']);
+  $repite_contraseña = strip_tags($_POST['repite_contraseña']);
+  if (strcmp($password, $repite_contraseña) !==0) {
     $msg2.="Las claves no coinciden <br>";
   }elseif (strlen($password) < 8) {
     $msg2.="La contraseña debe ser mayor a 8 carácteres <br>";
   }else{
-    $password = sha1($password);
-    $mysqli->query("UPDATE `usuarios` SET `usuarios_password` = '".$password."' WHERE `usuarios_id` = '".$_SESSION['usuarios_id']."'");
-    $msg2 = "La clave ha sido cambiada exitosamente";
+    $uid = $userClass->changePassword($email,$password);
+    if ($uid == true) {
+      $msg2 = "La clave ha sido cambiada exitosamente";
+    }else{
+      $msg2 = "Error en el cambio de clave";
+    }
   }
 }
+
 
  ?>
 <!DOCTYPE html>
@@ -48,7 +48,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>PHP Tube</title>
+  <title>Admin E-Sports UAC</title>
+  <link rel="icon" type="image/png" href="imagenes/logo.png" sizes="32x32">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -89,11 +90,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $email ?></a>
+          <span class="email"><?php echo $email ?></span>
         </div>
       </div>
 
@@ -111,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                </li>
           <li class="nav-item menu-open">
             <a href="inscription.php" class="nav-link">
-              <i class="nav-icon fas fa-binoculars"></i>
+              <i class="nav-icon far fa-edit"></i>
               <p>
                 Inscripción a una liga
               </p>
@@ -127,7 +125,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item menu-open">
             <a href="../logout.php" class="nav-link">
-              <i class="fas fa-sign-in-alt"></i>
+              <i class="nav-icon fas fa-sign-in-alt"></i>
               <p>
                 Cerrar sesión
               </p>
@@ -142,101 +140,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Configración</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
     <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-xs-6" style="margin-left:20px">
-          <div class="card">
-              <div class="card-body">
-                <h3 class="card-title">Cambiar contraseña</h3><br>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-
+    <div class="configuration-container">
+        <div class="configuration-content">
+          <div class="configuration-title">
+            <h2>Configuración</h2>
+          </div>
+          <div class="form-group configuration">
+            <form role="form" method="post">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ingresar contraseña actual</label>
-                  <input name="vieja_password" type="password" class="form-control" id="exampleInputEmail1" placeholder="Ingresar contraseña actual...">
+                  <input name="vieja_password" type="password" class="form-control" id="exampleInputEmail1" placeholder="Ingresar contraseña actual">
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ingresar nueva contraseña</label>
-                  <input name="nueva_password" type="password" class="form-control" id="exampleInputEmail1" placeholder="Ingresar nueva contraseña...">
+                  <input name="nueva_contraseña" type="password" class="form-control" id="nueva_contraseña" placeholder="Ingresar nueva contraseña">
                 </div>
-
                 <div class="form-group">
                   <label for="exampleInputEmail1">Confirmar nueva contraseña</label>
-                  <input name="repite_password" type="password" class="form-control" id="exampleInputEmail1" placeholder="Repite nueva contraseña...">
+                  <input name="repite_contraseña" type="password" class="form-control" id="repite_contraseña" placeholder="Repite nueva contraseña">
                 </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Cambiar</button>
-                <div style="color:red" class="">
-                  <?php if ($msg2!="") {
-                    echo $msg2;
-                  } ?>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary btn-change">Cambiar</button>
+                  <div class="msg-error">
+                    <?php if ($msg2!="") {
+                      echo $msg2;
+                    } ?>
+                  </div>
                 </div>
-              </div>
             </form>
-          </div>
-          </div>
-          <div class="col-xs-6" style="margin-left:20px">
-          <div class="card">
-              <div class="card-body">
-                <h3 class="card-title">Sube tu foto de perfil</h3><br>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form action="configuracion.php" method="post" enctype="multipart/form-data">
-                  <div class="box-body">
-                    <div class="form-group">
-                    <div class="form-group">
-                      <label for="exampleInputFile">Imagen</label><br>
-                      <input name="archivo" type="file" id="exampleInputFile">
-                    </div>
-                  </div>
-                  <!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                  </div>
-                  <div style="color:red"class="">
-                    <?php if ($msg!="") {
-                      echo $msg;
-                    }
-                     ?>
-                  </div>
-                </form>
-              </div>
-
-              </div>
-            </div>
-          </div>
-
-          </div>
         </div>
-        <!-- /.row -->
-
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+        </div>
+     </div>
   </div>
-</div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
