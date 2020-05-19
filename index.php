@@ -136,37 +136,22 @@ if (isset($_SESSION['autorizado'])) {
       </div>
     </div>
   </section>
-  <section id="portfolio">
+  <section id="games">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
         <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="assets/img/portfolio/fullsize/12.jpg">
-            <img class="img-fluid" src="assets/img/portfolio/thumbnails/12.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-name">
-              League of Legends
-              </div>
-            </div>
+          <a class="" href="pages/league-of-legends.php">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/League-Of-Legends.jpg" alt="League Of Legends">
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="assets/img/portfolio/fullsize/21.jpg">
-            <img class="img-fluid" src="assets/img/portfolio/thumbnails/21.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-name">
-              Fortnite
-              </div>
-            </div>
+            <a class="" href="pages/valorant.php">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Valorant.png" alt="Valorant">
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.png">
-            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.png" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-name">
-                Super Smash Bros.
-              </div>
-            </div>
+            <a class="" href="pages/super-smash-bros.php">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/Super-Smash.png" alt="Super Smash Bro">
           </a>
         </div>
       </div>

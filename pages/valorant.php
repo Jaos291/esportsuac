@@ -43,8 +43,8 @@
     </div>
   </nav>
   <header class="masthead">
-    <div class="faq-container">
-      <div class="faq-content">
+    <div class="valorant-container">
+      <div class="valorant-content">
 
       </div>
     </div>
