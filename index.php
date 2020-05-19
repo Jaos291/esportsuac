@@ -5,14 +5,17 @@ if (isset($_SESSION['autorizado'])) {
   if ($autorizado == false) {
     $var_user = "Iniciar sesión";
     $href = "pages/login.php";
+    $color = "";
   }else{
-    $href = "#";
+    $href = "pages/admin/inscription.php";
     $email = $_SESSION['user'];
     $var_user = $email;
+    $color = "";
   }
 }else{
   $var_user = "Iniciar sesión";
   $href = "pages/login.php";
+  $color = "";
 }
 /*if ($autorizado == false) {
 

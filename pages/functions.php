@@ -45,6 +45,22 @@ class userClass
       }
     }
 
+    public function selectNombre($email){
+      try {
+          $db = getDB();
+          $stmtname = $db->query("SELECT usuarios_nombre FROM esportsuac_usuarios WHERE usuarios_email = '".$email."'");
+          $stmtapellido = $db->query("SELECT usuarios_apellidos FROM esportsuac_usuarios WHERE usuarios_email = '".$email."'");
+        /*  $stmtname->bindParam("email", $email, PDO::PARAM_STR);
+          $stmtapellido->bindParam("email", $email, PDO::PARAM_STR);*/
+          $nombre= $stmtname->fetch(PDO::FETCH_ASSOC);
+          $apellido = $stmtapellido->fetch(PDO::FETCH_ASSOC);
+          return $nombre['usuarios_nombre']." ".$apellido['usuarios_apellidos'];
+      } catch (PDOException $e) {
+        echo '{"error":{"text":' . $e->getMessage() . '}}';
+      }
+
+    }
+
     /* User Registration */
     public function userRegistration($name, $apellido, $tipo_id, $id, $email, $password)
     {

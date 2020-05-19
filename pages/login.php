@@ -33,7 +33,9 @@ if (isset($_POST['email']) && isset($_POST['pwd'])) {
             $msg ="Bienvenido";
             //Hasta este punto el usuario ha podido ingresar, entonces está autorizado
             $_SESSION['autorizado'] = true;
-            $_SESSION['user'] = $email;
+            $username = $userClass->selectNombre($email);
+            $_SESSION['user'] = $username;
+            $_SESSION['email'] = $email;
             echo '<meta http-equiv="refresh" content="1; url=../index.php">';
         } else {
             $msg.="Nombre de usuario o contraseña incorrecta";
